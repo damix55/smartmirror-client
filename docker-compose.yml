@@ -1,0 +1,52 @@
+version: '3.9'
+
+services:
+  assistant:
+    build: ./assistant
+    container_name: assistant
+    command:  bash -c '! python3 server.py && echo "Waiting for authentication" && sleep infinity'
+    ports:
+      - 5000:5000
+    volumes:
+      - ~/.config/pulse/cookie:/root/.config/pulse/cookie
+      - ./assistant/src:/opt
+      - ./assistant/config/audio.yml:/root/audio.yml
+      - ./assistant/config/client_secret.json:/root/client_secret.json
+      - ./assistant/config/credentials.json:/root/.config/google-oauthlib-tool/credentials.json
+      - ./assistant/config/device_config.json:/root/.config/googlesamples-assistant/device_config.json
+    devices:
+      - /dev/snd
+    environment: 
+      - SERVER_URL=${SERVER_URL}
+    # restart: always
+ 
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    command: npm start
+    volumes:
+      - ./frontend:/opt
+      - node_modules:/opt/node_modules
+    ports:
+      - 3000:3000
+    environment:
+      - REACT_APP_SERVER_URL=${SERVER_URL}
+      - CHOKIDAR_USEPOLLING=true
+    # restart: always
+
+  video:
+    build: ./video
+    container_name: video
+    command: python server.py
+    ports:
+      - 7000:7000
+    volumes:
+      - ./video:/opt
+    devices:
+      - /dev/video0
+    environment:
+      - SERVER_URL=${SERVER_URL}
+    # restart: always
+
+volumes:
+  node_modules:

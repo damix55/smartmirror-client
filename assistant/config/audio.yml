@@ -1,0 +1,7 @@
+playback:
+- ALC892 Analog
+- bcm2835 Headphones
+
+capture:
+- USB Audio
+- ALC892 Analog

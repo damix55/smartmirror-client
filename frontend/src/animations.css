@@ -1,0 +1,519 @@
+
+.title {
+    font-size: 32px;
+    color: #DDD;
+    margin: 20px 0px;
+    text-align: center;
+}
+
+#canvas {
+    position: relative;
+    display: block;
+    margin: auto;
+    width: 600px;
+    height: 420px;
+    border-radius: 5px;
+    background: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -300px;
+    margin-top: -330px;
+}
+
+.blue {
+    background-color: #1E88E5;
+    left: 195px;
+}
+
+.red {
+    background-color: #E53935;
+    left: 250px;
+}
+
+.yellow {
+    background-color: #FFB300;
+    left: 305px;
+}
+
+.green {
+    background-color: #4CAF50;
+    left: 360px;
+}
+
+.dot {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    top: 200px;
+}
+
+#canvas.idle {
+    display: none;
+}
+/* Listening animation */
+
+.listening>div {
+    animation-name: listening;
+    animation-duration: 1.8s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: none;
+    animation-timing-function: ease-in-out;
+    animation-name: listening;
+}
+
+.listening>.red {
+    animation-delay: 0.3s;
+}
+
+.listening>.yellow {
+    animation-delay: 0.6s;
+}
+
+.listening>.green {
+    animation-delay: 0.9s;
+}
+/* Voice active animation */
+
+.speaking>div {
+    animation-duration: 1.8s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: none;
+    animation-timing-function: ease-in-out;
+}
+
+.speaking>.blue {
+    animation-name: voice-active-blue;
+}
+
+.speaking>.red {
+    animation-name: voice-active-red;
+    animation-delay: 0.1;
+}
+
+.speaking .yellow {
+    animation-name: voice-active-yellow;
+    animation-delay: 0.2;
+}
+
+.speaking .green {
+    animation-name: voice-active-green;
+    animation-delay: 0.3;
+}
+/* Rotation animation */
+
+.thinking>div {
+    animation-duration: .8s, 3s;
+    animation-iteration-count: 1, infinite;
+    animation-fill-mode: forwards, none;
+    animation-timing-function: ease-in-out, linear;
+}
+
+.thinking>.blue {
+    animation-name: pre-rotation-blue, rotation;
+    animation-delay: 0, 0.2;
+}
+
+.thinking>.red {
+    animation-name: pre-rotation-red, rotation;
+    animation-delay: 0.1, 0.3;
+}
+
+.thinking .yellow {
+    animation-name: pre-rotation-yellow, rotation;
+    animation-delay: 0.2, 0.4;
+}
+
+.thinking .green {
+    animation-name: pre-rotation-green, rotation;
+    animation-delay: 0.3, 0.5;
+}
+
+@keyframes listening {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(25px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes voice-active-blue {
+    0% {
+        top: 100px;
+        padding: 100px 0px;
+        border-radius: 30px;
+    }
+    10% {
+        top: 75px;
+        padding: 125px 0px;
+    }
+    15% {
+        top: 100px;
+        padding: 100px 0px;
+    }
+    20% {
+        top: 110px;
+        padding: 90px 0px;
+    }
+    25% {
+        top: 90px;
+        padding: 110px 0px;
+    }
+    30% {
+        top: 130px;
+        padding: 70px 0px;
+    }
+    35% {
+        top: 110px;
+        padding: 90px 0px;
+    }
+    40% {
+        top: 150px;
+        padding: 50px 0px;
+    }
+    45% {
+        top: 130px;
+        padding: 70px 0px;
+    }
+    50% {
+        top: 100px;
+        padding: 100px 0px;
+    }
+    55% {
+        top: 90px;
+        padding: 110px 0px;
+    }
+    60% {
+        top: 130px;
+        padding: 70px 0px;
+    }
+    65% {
+        top: 110px;
+        padding: 90px 0px;
+    }
+    70% {
+        top: 150px;
+        padding: 50px 0px;
+    }
+    75% {
+        top: 110px;
+        padding: 90px 0px;
+    }
+    80% {
+        top: 90px;
+        padding: 110px 0px;
+    }
+    85% {
+        top: 150px;
+        padding: 50px 0px;
+    }
+    90% {
+        top: 90px;
+        padding: 110px 0px;
+    }
+    100% {
+        top: 110px;
+        padding: 90px 0px;
+        border-radius: 30px;
+    }
+}
+
+@keyframes voice-active-red {
+    0% {
+        top: 165px;
+        padding: 35px 0px;
+        border-radius: 30px;
+    }
+    10% {
+        top: 145px;
+        padding: 55px 0px;
+    }
+    15% {
+        top: 165px;
+        padding: 35px 0px;
+    }
+    20% {
+        top: 145px;
+        padding: 55px 0px;
+    }
+    25% {
+        top: 155px;
+        padding: 45px 0px;
+    }
+    30% {
+        top: 175px;
+        padding: 25px 0px;
+    }
+    35% {
+        top: 155px;
+        padding: 45px 0px;
+    }
+    40% {
+        top: 165px;
+        padding: 35px 0px;
+    }
+    45% {
+        top: 175px;
+        padding: 25px 0px;
+    }
+    50% {
+        top: 165px;
+        padding: 35px 0px;
+    }
+    55% {
+        top: 180px;
+        padding: 20px 0px;
+    }
+    60% {
+        top: 185px;
+        padding: 15px 0px;
+    }
+    65% {
+        top: 155px;
+        padding: 45px 0px;
+    }
+    70% {
+        top: 175px;
+        padding: 25px 0px;
+    }
+    75% {
+        top: 155px;
+        padding: 45px 0px;
+    }
+    80% {
+        top: 180px;
+        padding: 20px 0px;
+    }
+    85% {
+        top: 190px;
+        padding: 10px 0px;
+    }
+    90% {
+        top: 180px;
+        padding: 20px 0px;
+    }
+    100% {
+        top: 155px;
+        padding: 45px 0px;
+        border-radius: 30px;
+    }
+}
+
+@keyframes voice-active-yellow {
+    0% {
+        top: 90px;
+        padding: 110px 0px;
+        border-radius: 30px;
+    }
+    10% {
+        top: 65px;
+        padding: 135px 0px;
+    }
+    15% {
+        top: 90px;
+        padding: 110px 0px;
+    }
+    20% {
+        top: 100px;
+        padding: 100px 0px;
+    }
+    25% {
+        top: 80px;
+        padding: 120px 0px;
+    }
+    30% {
+        top: 120px;
+        padding: 80px 0px;
+    }
+    35% {
+        top: 100px;
+        padding: 100px 0px;
+    }
+    40% {
+        top: 140px;
+        padding: 60px 0px;
+    }
+    45% {
+        top: 120px;
+        padding: 80px 0px;
+    }
+    50% {
+        top: 90px;
+        padding: 110px 0px;
+    }
+    55% {
+        top: 80px;
+        padding: 120px 0px;
+    }
+    60% {
+        top: 120px;
+        padding: 80px 0px;
+    }
+    65% {
+        top: 100px;
+        padding: 100px 0px;
+    }
+    70% {
+        top: 140px;
+        padding: 60px 0px;
+    }
+    75% {
+        top: 100px;
+        padding: 100px 0px;
+    }
+    80% {
+        top: 80px;
+        padding: 120px 0px;
+    }
+    85% {
+        top: 100px;
+        padding: 100px 0px;
+    }
+    90% {
+        top: 140px;
+        padding: 60px 0px;
+    }
+    100% {
+        top: 100px;
+        padding: 100px 0px;
+        border-radius: 30px;
+    }
+}
+
+@keyframes voice-active-green {
+    0% {
+        top: 165px;
+        padding: 35px 0px;
+        border-radius: 30px;
+    }
+    10% {
+        top: 135px;
+        padding: 65px 0px;
+    }
+    15% {
+        top: 155px;
+        padding: 45px 0px;
+    }
+    20% {
+        top: 135px;
+        padding: 65px 0px;
+    }
+    25% {
+        top: 145px;
+        padding: 65px 0px;
+    }
+    30% {
+        top: 165px;
+        padding: 35px 0px;
+    }
+    35% {
+        top: 145px;
+        padding: 55px 0px;
+    }
+    40% {
+        top: 155px;
+        padding: 45px 0px;
+    }
+    45% {
+        top: 165px;
+        padding: 35px 0px;
+    }
+    50% {
+        top: 155px;
+        padding: 45px 0px;
+    }
+    55% {
+        top: 170px;
+        padding: 30px 0px;
+    }
+    60% {
+        top: 175px;
+        padding: 25px 0px;
+    }
+    65% {
+        top: 145px;
+        padding: 55px 0px;
+    }
+    70% {
+        top: 165px;
+        padding: 35px 0px;
+    }
+    75% {
+        top: 145px;
+        padding: 55px 0px;
+    }
+    80% {
+        top: 170px;
+        padding: 30px 0px;
+    }
+    85% {
+        top: 190px;
+        padding: 10px 0px;
+    }
+    90% {
+        top: 145px;
+        padding: 55px 0px;
+    }
+    100% {
+        top: 170px;
+        padding: 30px 0px;
+        border-radius: 30px;
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {}
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pre-rotation-blue {
+    90% {
+        top: 153px;
+        /*     left: 182.5px; */
+    }
+    100% {
+        transform-origin: 69px 69.5px;
+        top: 153px;
+        left: 227.5px;
+    }
+}
+
+@keyframes pre-rotation-red {
+    50% {
+        top: 113px;
+    }
+    100% {
+        transform-origin: -25px 69.5px;
+        top: 153px;
+        left: 322.5px;
+    }
+}
+
+@keyframes pre-rotation-yellow {
+    to {
+        transform-origin: -25.5px -25.5px;
+        top: 247.5px;
+        left: 322.5px;
+    }
+}
+
+@keyframes pre-rotation-green {
+    50% {
+        top: 287.5px;
+    }
+    100% {
+        transform-origin: 69.5px -25.5px;
+        top: 247.5px;
+        left: 227.5px;
+    }
+}

@@ -1,0 +1,13 @@
+cryptography==2.1.4
+flask
+flask_socketio
+google-assistant-grpc==0.2.1
+google-assistant-sdk==0.6.0
+google-auth==2.3.3
+google-auth-oauthlib==0.2.0
+googleapis-common-protos==1.54.0
+pathlib2
+pyaudio
+voice_engine
+pyyaml
+tenacity
